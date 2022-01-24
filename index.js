@@ -2,16 +2,7 @@ const inquirer = require('inquirer');
 const cTable = require('console.table');
 const mysql = require('mysql2');
 const ListPrompt = require('inquirer/lib/prompts/list');
-
-const db = mysql.createConnection(
-	{
-		host: 'localhost',
-		user: 'root',
-		password: 'root',
-		database: 'employee_db',
-	},
-	() => console.log('Connected to db')
-);
+const db = require('./config/connection');
 
 function employeeQuestions() {
 	inquirer
@@ -61,3 +52,4 @@ function employeeQuestions() {
 			}
 		});
 }
+
